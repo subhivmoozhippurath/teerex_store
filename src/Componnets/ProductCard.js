@@ -1,7 +1,12 @@
 import React from 'react'
+import { addItem } from '../utils/cartSlice';
+import { useDispatch } from 'react-redux';
 
 const ProductCard = ({data}) => {
-  console.log(data)
+  const dispatch = useDispatch()
+  const addtocart = () =>{
+    dispatch(addItem(data))
+  }
   return (
     <>
      {/* // <p>T-Shirt</p> */}
@@ -9,7 +14,7 @@ const ProductCard = ({data}) => {
         <img src={data.imageURL} />
         <div className="flex cardbottom">
           <p>{data.currency }  { data.price}/-</p>
-          <button className="btn">Add to Cart</button>
+          <button className="btn" onClick={addtocart}>Add to Cart</button>
         </div>
       </div>
     </>
