@@ -1,7 +1,18 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import ProductCard from './ProductCard'
 
 const ProductList = () => {
+  const [products,setProducts] = useState([])
+  useEffect(()=>{
+    const fetchData = async() =>{
+      const data = await fetch("https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/catalogue.json");
+      const response = await data.json();
+      setProducts(response)
+      // console.log('response',response)
+      
+    }
+    fetchData()
+  },[])
   return (
     <div className='listingContainer container'>
       <div className='filterContainer'>
@@ -11,19 +22,13 @@ const ProductList = () => {
 
       </div>
       <div className='productContainer'>
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-
-
-
+      {products.length > 0 ? (
+          products.map((item) => (
+            <ProductCard key={item.id} data={item} />
+          ))
+        ) : (
+          <p>Loading products...</p>
+        )}
       </div>
       
     </div>
