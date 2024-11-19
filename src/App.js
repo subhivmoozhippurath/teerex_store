@@ -1,10 +1,12 @@
 import './App.css';
+import Header from './Componnets/Header';
 
 function App() {
   return (
-    <div>
-      online shopping cart
-    </div>
+    <>
+    <Header />
+      
+    </>
   );
 }
 
