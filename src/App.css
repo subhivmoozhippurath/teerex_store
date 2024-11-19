@@ -2,17 +2,27 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
-  background-color: rgba(241, 242, 244, 1.00);
+  background-color: #fff;
+/* background-color: rgba(241, 242, 244, 1.00); */
+}
+.flex{
+  display: flex;
+}
+.container{
+  background-color: #fff ;
+  padding: 20px 40px;
+
+
 }
 .headerContainer{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #fff ;
   height:80px;
-  width:100vw;
-  padding: 20px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 99999;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
 .headerName{
   font-size: 27px;
@@ -23,6 +33,54 @@
 .cartlogo{
   width:80px
 }
+.listingContainer{
+margin:20px;
+margin-top: 30px; 
+height: calc(100vh - 100px);
+overflow-y: auto;
+display: flex;
+gap:8px;
+}
+.filterContainer{
+  width:30%;
+  background-color:#fff;
+  border: ipx solid black;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); 
+}
+.productContainer{
+  width:70%;
+  display:flex ;
+  flex-wrap: wrap;
+  gap:10px;
+}
+.productContainer > * {
+  flex: 1 1 calc(25% - 16px); /* Items will take 25% width, minus the gap */
+  max-width: calc(25% - 16px); /* Prevents items from growing too large */
+  box-sizing: border-box; /* Includes padding/border in width calculations */
+}
+.card{
+  width:200px;
+  padding:15px;
+  background-color:#fff;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); 
+}
+.card >img{
+  width:100%;
+  object-fit: cover;
+}
+.cardbottom{
+  margin-top: 10px;
+  display: flex;
+  justify-content:space-around ;
+}
+.btn{
+  padding:2px 4px;
+  background: grey;
+  font-size: 10px;
+  color:white
+}
+
+
 @media (max-width:790px){
   .headerName{
     font-size: 21px;
@@ -30,8 +88,10 @@
   .cartlogo{
     width:50px
   }
-  
-  
+  .productContainer > * {
+    flex: 1 1 calc(50% - 16px); /* Adjusts to 2 items per row for tablets */
+    max-width: calc(50% - 16px);
+  }  
 }
 @media (max-width:480px){
   .headerName{
