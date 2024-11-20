@@ -30,8 +30,14 @@
   background-color: #fff ;
 
 }
+.navbar{
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
 .cartlogo{
-  width:80px
+  width:60px;
+  margin-left: 4px;
 }
 .listingContainer{
 margin:20px;
@@ -83,7 +89,8 @@ gap:8px;
   padding:2px 4px;
   background: grey;
   font-size: 10px;
-  color:white
+  color:white;
+  cursor: pointer;
 }
 
 
