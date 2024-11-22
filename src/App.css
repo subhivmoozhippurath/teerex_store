@@ -50,8 +50,17 @@ gap:8px;
 .filterContainer{
   width:30%;
   background-color:#fff;
-  border: ipx solid black;
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); 
+  padding:20px;
+  display: flex;
+  flex-direction: column;
+}
+.filterContainer>label{
+  margin-top: 10px;
+  margin-left: 12px;
+}
+.filterContainer>h4{
+  margin-top: 15px;
 }
 .productContainer{
   width:70%;
