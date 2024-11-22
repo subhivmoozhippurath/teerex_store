@@ -72,8 +72,7 @@ const ProductList = () => {
       const matchesSearch =
         product.name.toLowerCase().includes(lowerCaseSearch) ||
         product.color.toLowerCase().includes(lowerCaseSearch) ||
-        product.type.toLowerCase().includes(lowerCaseSearch) ||
-        product.price.includes(lowerCaseSearch);
+        product.type.toLowerCase().includes(lowerCaseSearch);
 
       const matchesColor =
         filters.colors.length === 0 ||
@@ -169,7 +168,7 @@ const ProductList = () => {
               <ProductCard key={item.id} data={item} />
             ))
           ) : (
-            <p>Loading products...</p>
+            <p>No Specific products...</p>
           )}
         </div>
       </div>
