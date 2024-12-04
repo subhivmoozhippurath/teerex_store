@@ -55,6 +55,18 @@ gap:8px;
   display: flex;
   flex-direction: column;
 }
+.filterContainer.visible {
+  display: block;
+  position: absolute;
+  top: 25%;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 100;
+  padding: 16px;
+  border: 1px solid #ccc;
+}
+
 .filterContainer>label{
   margin-top: 10px;
   margin-left: 12px;
@@ -159,6 +171,9 @@ gap:8px;
   border-radius: 6px;
   cursor: pointer;
 }
+.fillterImg{
+  display: none;
+}
 @media (max-width:790px){
   .headerName{
     font-size: 21px;
@@ -178,6 +193,28 @@ gap:8px;
   .cartlogo{
     width:40px
   }
-  
+  .searchContainer, .searchinput{
+    width:100%;
+    padding:10px;
+  }
+  .filterContainer,.productlist{
+    display: none;
+  }
+  .listingContainer{
+    margin-top: 0;
+  }
+  .productContainer{
+    width:100%;
+  }
+  .productContainer > *{
+    flex: 1  calc(100% - 16px); /* Adjusts to 2 items per row for tablets */
+    max-width: calc(100% - 16px);
+  }
+  .fillterImg{
+    display: block;
+  }
+  .filterContainer.visible {
+    display: block; /* Show only when mobState is true */
+  }
   
 }

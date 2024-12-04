@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
-import { SEARCH_IMG } from "../utils/constants";
+import { FILTER_IMG, SEARCH_IMG } from "../utils/constants";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [filters, setFilters] = useState({
+  const [mobState, setMobState] = useState(false); 
+ const [filters, setFilters] = useState({
     colors: [],
     genders: [],
     types: [],
@@ -97,8 +98,10 @@ const ProductList = () => {
     });
     setFilteredProducts(filtered);
   };
-
-  useEffect(() => {
+  const toggleMobileFilters = () => {
+    setMobState((prevState) => !prevState);
+  };
+    useEffect(() => {
     filterItems();
   }, [filters, searchTerm]);
 
@@ -113,10 +116,11 @@ const ProductList = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
         <img className="searchImg" src={SEARCH_IMG} onClick={searchitems} />
+        <img className="fillterImg searchImg" src={FILTER_IMG} onClick={toggleMobileFilters} />
       </diV>
 
       <div className="listingContainer container">
-        <div className="filterContainer">
+        <div className={`filterContainer ${mobState ? "visible" : ""}`}>
           <h4>Colors</h4>
           {allColors.map((color) => (
             <label key={color}>
